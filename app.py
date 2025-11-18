@@ -15,7 +15,11 @@ class_names = [
 ]
 
 @app.route("/")
-def index():
+def home():
+    return render_template("home.html")
+
+@app.route("/predict_page")
+def predict_page():
     return render_template("index.html")
 
 @app.route("/predict", methods=["POST"])

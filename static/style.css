@@ -73,3 +73,53 @@ body {
     font-weight: bold;
     color: #fff;
 }
+
+
+.subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+.feature-card {
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 18px;
+    margin-bottom: 20px;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.feature-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-buttons {
+    margin-top: 25px;
+}
+
+.home-btn {
+    display: block;
+    padding: 14px;
+    background: rgba(0,0,0,0.25);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    margin-bottom: 15px;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.2);
+    font-size: 17px;
+}
+
+.home-btn:hover {
+    background: rgba(255,255,255,0.25);
+}
+.home-btn i {
+    margin-right: 10px;
+    font-size: 20px;
+}
