@@ -1,0 +1,6 @@
+{
+    "theme": "light",
+    "input_size": 160,
+    "confidence_threshold": 0.5,
+    "background_color": "#bf6e6e"
+}

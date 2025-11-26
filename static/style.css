@@ -1,19 +1,20 @@
+/* Đảm bảo body có transition mượt mà */
 body {
-    background: #000;
-    font-family: "Poppins", sans-serif;
+    transition: background-color 0.3s ease;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
 }
 
+/* Main card vẫn giữ style riêng */
 .main-card {
-    width: 380px;
-    margin: auto;
-    margin-top: 40px;
-    border-radius: 30px;
-    padding: 40px 25px;
-    background: linear-gradient(180deg, #14d98a, #0db35e);
-    box-shadow: 0 0 25px rgba(0,0,0,0.4);
-    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
-
 .title {
     font-size: 28px;
     font-weight: 700;
@@ -122,4 +123,15 @@ body {
 .home-btn i {
     margin-right: 10px;
     font-size: 20px;
+}
+/* Thêm vào file style.css */
+.menu-btn.active {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    transform: scale(1.1);
+}
+
+.form-control-color {
+    width: 60px !important;
+    height: 38px !important;
+    padding: 2px !important;
 }

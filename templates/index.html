@@ -6,30 +6,51 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: {{ settings.background_color }} !important;
+            transition: background-color 0.3s ease;
+        }
+    </style>
 </head>
 <body>
 
 <div class="main-card">
 
+    <!-- Robot icon -->
     <div class="robot-icon text-center">
         <i class="bi bi-robot" style="font-size: 75px; color: #fff;"></i>
     </div>
 
     <h1 class="title text-center">Garbage Classification</h1>
 
+    <!-- Menu icons -->
     <div class="menu-icons text-center mt-3">
+
+        <!-- HOME -->
         <a href="/" class="menu-btn"><i class="bi bi-house-fill"></i></a>
-        <i class="bi bi-info-circle-fill menu-btn"></i>
-        <i class="bi bi-question-circle-fill menu-btn"></i>
-        <i class="bi bi-gear-fill menu-btn"></i>
+
+        <!-- INFO -->
+        <a href="/info" class="menu-btn"><i class="bi bi-info-circle-fill"></i></a>
+
+        <!-- HELP -->
+        <a href="/help" class="menu-btn"><i class="bi bi-question-circle-fill"></i></a>
+
+        <!-- SETTINGS -->
+        <a href="/settings" class="menu-btn">
+            <i class="bi bi-gear-fill"></i>
+        </a>
     </div>
 
+    <!-- Action buttons -->
     <div class="btn-group-container mt-4">
 
-        <a href="#" class="action-btn">
+        <!-- TAKE A PICTURE -->
+        <a href="#" class="action-btn" onclick="openCamera()">
             <i class="bi bi-camera-fill"></i> Take a Picture
         </a>
 
+        <!-- UPLOAD IMAGE -->
         <form action="/predict" method="POST" enctype="multipart/form-data">
             <label class="action-btn upload-btn">
                 <i class="bi bi-upload"></i> Upload Image
@@ -37,12 +58,29 @@
             </label>
         </form>
 
+        <!-- REAL TIME -->
         <a href="/realtime" class="action-btn">
             <i class="bi bi-camera-video-fill"></i> Real-time Capture
         </a>
 
     </div>
 
+    <!-- CAMERA UI -->
+    <div id="camera-container" style="display:none; text-align:center; margin-top:20px;">
+        <video id="camera" autoplay playsinline 
+            style="width:100%; border-radius:15px; border: 2px solid white;">
+        </video>
+
+        <button class="btn btn-warning mt-3" onclick="capturePhoto()">
+            <i class="bi bi-camera"></i> Capture
+        </button>
+
+        <form id="captureForm" action="/predict_camera" method="POST">
+            <input type="hidden" id="imageBase64" name="imageBase64">
+        </form>
+    </div>
+
+    <!-- Prediction Result -->
     {% if prediction %}
     <div class="result-box mt-4">
         <h3>Prediction:</h3>
@@ -51,6 +89,51 @@
     {% endif %}
 
 </div>
+
+<!-- CAMERA SCRIPT -->
+<script>
+let stream = null;
+
+function openCamera() {
+    const cameraBox = document.getElementById("camera-container");
+    const video = document.getElementById("camera");
+
+    cameraBox.style.display = "block";
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(s => {
+            stream = s;
+            video.srcObject = stream;
+        })
+        .catch(err => {
+            alert("Camera is not accessible: " + err);
+        });
+}
+
+function capturePhoto() {
+    const video = document.getElementById("camera");
+
+    if (!video.videoWidth) {
+        alert("Camera is not ready yet!");
+        return;
+    }
+
+    const canvas = document.createElement("canvas");
+    canvas.width = 160;
+    canvas.height = 160;
+
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(video, 0, 0, 160, 160);
+
+    const dataURL = canvas.toDataURL("image/jpeg", 0.9);
+
+    document.getElementById("imageBase64").value = dataURL;
+
+    if (stream) stream.getTracks().forEach(track => track.stop());
+
+    document.getElementById("captureForm").submit();
+}
+</script>
 
 </body>
 </html>
