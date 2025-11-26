@@ -9,7 +9,7 @@ import base64
 from io import BytesIO
 
 app = Flask(__name__)
-app.config["MAX_CONTENT_LENGTH"] = 6 * 1024 * 1024  # limit 6MB
+app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # Tăng lên 16MB
 
 model = load_model("garbage_effnetb0.h5")
 
