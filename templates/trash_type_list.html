@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách loại rác</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: {{ settings.background_color }} !important;
+            transition: background-color 0.3s ease;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class = "main-card">
+        <div class="robot-icon text-center">
+            <i class="bi bi-robot" style="font-size: 75px; color: #fff;"></i>
+        </div>
+
+        <h1 class="title text-center">Danh sách loại rác</h1>
+
+        <div class="menu-icons text-center mt-3">
+            <a href="/" class="menu-btn"><i class="bi bi-house-fill"></i></a>
+        </div>
+        <div class="d-flex justify-content-center gap-5">
+            <div class="col-6">
+                <ol>
+                    <li><a href="/trash/battery" class="trash-list">Battery</a></li>
+                    <li><a href="/trash/biological" class="trash-list">Biological</a></li>
+                    <li><a href="/trash/brown-glass" class="trash-list">Brown-glass</a></li>
+                    <li><a href="/trash/cardboard" class="trash-list">Cardboard</a></li>
+                    <li><a href="/trash/clothes" class="trash-list">Clothes</a></li>
+                    <li><a href="/trash/green-glass" class="trash-list">Green-glass</a></li>
+                </ol>
+            </div>
+            <div class="col-6">
+                <ol start="7">
+                    <li><a href="/trash/metal" class="trash-list">Metal</a></li>
+                    <li><a href="/trash/paper" class="trash-list">Paper</a></li>
+                    <li><a href="/trash/plastic" class="trash-list">Plastic</a></li>
+                    <li><a href="/trash/shoes" class="trash-list">Shoes</a></li>
+                    <li><a href="/trash/trash" class="trash-list">Trash</a></li>
+                    <li><a href="/trash/white-glass" class="trash-list">White-glass</a></li>
+                </ol>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

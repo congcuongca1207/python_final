@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Garbage Classification - Home</title>
+    <title>Settings</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
         body {
             background-color: {{ settings.background_color }} !important;
             transition: background-color 0.3s ease;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
         }
     </style>
 </head>
@@ -17,7 +24,25 @@
 <div class="main-card">
 
     <div class="robot-icon text-center">
-        <i class="bi bi-robot" style="font-size: 75px; color: #fff;"></i>
+        <i class="bi bi-robot" style="font-size: 75px; color: #fff; "></i>
+    </div>
+
+    <!-- Menu icons -->
+    <div class="menu-icons text-center mt-3">
+
+        <!-- HOME -->
+        <a href="/" class="menu-btn"><i class="bi bi-house-fill"></i></a>
+
+        <!-- INFO -->
+        <a href="/info" class="menu-btn"><i class="bi bi-info-circle-fill"></i></a>
+
+        <!-- HELP -->
+        <a href="/help" class="menu-btn"><i class="bi bi-question-circle-fill"></i></a>
+
+        <!-- SETTINGS -->
+        <a href="/settings" class="menu-btn">
+            <i class="bi bi-gear-fill"></i>
+        </a>
     </div>
 
     <h1 class="title text-center">Smart Garbage Sorting</h1>
@@ -47,14 +72,13 @@
             <i class="bi bi-lightning-charge-fill"></i> Bắt đầu phân loại
         </a>
 
-        <a href="#" class="home-btn">
+        <a href="/trash_type_list_page" class="home-btn">
             <i class="bi bi-list-ul"></i> Danh sách loại rác
         </a>
 
-        <a href="#" class="home-btn">
+        <a href="/instruction_guide_page" class="home-btn">
             <i class="bi bi-question-circle"></i> Hướng dẫn sử dụng
         </a>
-
     </div>
 
 </div>

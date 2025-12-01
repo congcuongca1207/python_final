@@ -5,15 +5,40 @@ body {
     margin: 0;
     padding: 20px;
 }
+/* style.css */
+body {
+    background-image: url('/static/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: all 0.3s ease;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
 
-/* Main card vẫn giữ style riêng */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 46, 0.7); /* Màu overlay */
+    z-index: -1;
+}
+
+/* Đảm bảo main-card vẫn nổi bật */
 .main-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
     border-radius: 20px;
     padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 80%;
 }
 .title {
     font-size: 28px;
@@ -134,4 +159,17 @@ body {
     width: 60px !important;
     height: 38px !important;
     padding: 2px !important;
+}
+.trash-list {
+    color: white;
+    text-decoration: none;
+    a:hover {
+    color: #000; 
+    }
+    font-size: 24px;
+}
+ol{
+    display: grid;
+    grid-template-columns: auto auto;
+    font-size: 24px;
 }
