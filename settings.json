@@ -2,6 +2,6 @@
     "theme": "dark",
     "input_size": 160,
     "confidence_threshold": 0.2,
-    "background_color": "#57986c",
+    "background_color": "#646216",
     "background_image": "nature-bg.jpg"
 }
